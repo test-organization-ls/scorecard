@@ -26,7 +26,7 @@ jobs:
       id-token: write
       contents: read
     needs: args
-    uses: asraa/slsa-on-github/.github/workflows/slsa-builder-go.yml@main
+    uses: asraa/slsa-on-github/.github/workflows/builder.yml@main
     with:
       go-version: 1.17
       env: "VERSION_LDFLAGS:${{needs.args.outputs.ldflags}}"
