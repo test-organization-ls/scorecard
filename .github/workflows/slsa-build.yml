@@ -46,7 +46,12 @@ jobs:
           ls
           chmod a+x ./${{ needs.build.outputs.go-binary-name }}
           ./${{ needs.build.outputs.go-binary-name }} --help
-      - name: Release
+      - name: Release1
+        uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: ${{ needs.build.outputs.go-binary-name }}
+      - name: Release2
         uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5
         if: startsWith(github.ref, 'refs/tags/')
         with:
