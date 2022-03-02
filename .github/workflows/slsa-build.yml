@@ -51,6 +51,6 @@ jobs:
         uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files:  |
+          files: |
             ${{ needs.build.outputs.go-binary-name }} # Binary.
             ${{ needs.build.outputs.go-binary-name }}.intoto.sig # Signed provenance.
