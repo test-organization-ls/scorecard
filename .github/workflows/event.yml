@@ -9,5 +9,5 @@ jobs:
     steps:
     - name: Print event
       run: |
-        cat "event: $GITHUB_EVENT_NAME"
+        echo "event: $GITHUB_EVENT_NAME"
         cat "$GITHUB_EVENT_PATH"
