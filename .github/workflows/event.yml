@@ -11,7 +11,15 @@ jobs:
     steps:
     - name: Print event
       run: |
-        echo "$ACTIONS_ID_TOKEN_REQUEST_URL"
-        echo "$ACTIONS_ID_TOKEN_REQUEST_TOKEN"
+        echo "URL: $ACTIONS_ID_TOKEN_REQUEST_URL"
+        echo "TOKEN: $ACTIONS_ID_TOKEN_REQUEST_TOKEN"
+        status_code=$(curl -s -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL -o repo_info.json -w '%{http_code}')
+        if [[ $status_code -ge 400 ]]; then
+            error_msg=$(jq -r .message repo_info.json 2>/dev/null || echo 'unknown error')
+            echo "Failed to get repository information from GitHub, response $status_code: $error_msg"
+            exit 1;
+        fi
+        
+        cat repo_info.json
         #echo "event: $GITHUB_EVENT_NAME"
         #cat "$GITHUB_EVENT_PATH"
