@@ -6,8 +6,12 @@ permissions: read-all
 jobs:
   print:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
     - name: Print event
       run: |
-        echo "event: $GITHUB_EVENT_NAME"
-        cat "$GITHUB_EVENT_PATH"
+        echo "$ACTIONS_ID_TOKEN_REQUEST_URL"
+        echo "$ACTIONS_ID_TOKEN_REQUEST_TOKEN"
+        #echo "event: $GITHUB_EVENT_NAME"
+        #cat "$GITHUB_EVENT_PATH"
