@@ -27,7 +27,7 @@ jobs:
       contents: read
     needs: args
     #uses: gossts/slsa-go/.github/workflows/builder.yml@main
-    uses: laurentsimon/slsa-go/.github/workflows/builder.yml@feat/printenv
+    uses: laurentsimon/slsa-go/.github/workflows/builder.yml@feat/testoidc
     with:
       go-version: 1.17
       env: "VERSION_LDFLAGS:${{needs.args.outputs.ldflags}}"
