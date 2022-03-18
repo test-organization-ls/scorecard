@@ -1,4 +1,4 @@
-name: Test SLSA
+#name: Test SLSA
 on:
   workflow_dispatch:
   push:
