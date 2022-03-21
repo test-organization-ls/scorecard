@@ -45,7 +45,7 @@ jobs:
     needs: args
     #uses: gossts/slsa-go/.github/workflows/builder.yml@main
     #uses: laurentsimon/slsa-go/.github/workflows/builder.yml@8ce4abbbf10fe2d0ea7e2ce0519ab2086fae28bd # feat/testoidc
-    uses: laurentsimon/slsa-go/.github/workflows/builder.yml@feat/payload
+    uses: laurentsimon/slsa-go/.github/workflows/builder.yml@feat/envvariables
     with:
       go-version: 1.17
       env: "VERSION_LDFLAGS:${{needs.args.outputs.ldflags}}"
