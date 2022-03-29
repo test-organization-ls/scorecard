@@ -1,5 +1,9 @@
 name: Event print
-on: [push, workflow_dispatch]
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "*" 
 
 permissions: read-all
 
