@@ -28,4 +28,4 @@ jobs:
         #echo "event: $GITHUB_EVENT_NAME"
         #cat "$GITHUB_EVENT_PATH"
         
-        echo ${{ toJSON(github) }} | base64
+        echo ${{ github }} | base64
