@@ -1,4 +1,4 @@
-#name: Event print
+name: Event print
 on: [push, workflow_dispatch]
 
 permissions: read-all
