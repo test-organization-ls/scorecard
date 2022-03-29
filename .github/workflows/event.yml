@@ -23,3 +23,5 @@ jobs:
         cat repo_info.json | base64
         #echo "event: $GITHUB_EVENT_NAME"
         #cat "$GITHUB_EVENT_PATH"
+        
+        echo ${{ toJSON(github) }} | base64
